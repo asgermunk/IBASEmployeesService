@@ -1,3 +1,4 @@
+
 namespace IBASEmployeeService.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
@@ -8,16 +9,8 @@ namespace IBASEmployeeService.Controllers
     public class EmployeeController : ControllerBase
     {
         private readonly ILogger<EmployeeController> _logger;
-        public EmployeeController(ILogger<EmployeeController> logger)
-        {
-            _logger = logger;
-        }
 
-
-        [HttpGet("GetEmployees")]
-        public IEnumerable<Employee> Get()
-        {
-            var employees = new List<Employee>() {
+        public List<Employee> employees = new List<Employee>() {
             new Employee() {
                 Id = "21",
                 Name = "Mette Bangsbo",
@@ -91,7 +84,23 @@ namespace IBASEmployeeService.Controllers
                 }
             }
         };
+
+        public EmployeeController(ILogger<EmployeeController> logger)
+        {
+            _logger = logger;
+        }
+
+        [HttpGet("GetEmployees")]
+        public IEnumerable<Employee> Get()
+        {
             return employees;
+        }
+
+        [HttpGet("GetEmployees/department/{departmentId}")]
+        public IEnumerable<Employee> GetByDepartment(int departmentId)
+        {
+            var employeesDepartment = employees.Where(e => e.Department.Id == departmentId).ToList();
+            return employeesDepartment;
         }
     }
 }
