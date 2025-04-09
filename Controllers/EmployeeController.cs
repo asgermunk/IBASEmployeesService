@@ -2,7 +2,7 @@ namespace IBASEmployeeService.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
     using IBASEmployeeService.Models;
-    
+
     [ApiController]
     [Route("api/[controller]")]
     public class EmployeeController : ControllerBase
@@ -44,11 +44,54 @@ namespace IBASEmployeeService.Controllers
                     Id = 2,
                     Name = "Support"
                 }
+            },
+            new Employee() {
+                Id = "24",
+                Name = "Anders Jensen",
+                Email = "anje@ibas.dk",
+                Department = new Department() {
+                    Id = 3,
+                    Name = "IT"
+                }
+            },
+            new Employee() {
+                Id = "25",
+                Name = "Sofie Nielsen",
+                Email = "soni@ibas.dk",
+                Department = new Department() {
+                    Id = 3,
+                    Name = "IT"
+                }
+            },
+            new Employee() {
+                Id = "26",
+                Name = "Thomas Pedersen",
+                Email = "tope@ibas.dk",
+                Department = new Department() {
+                    Id = 3,
+                    Name = "IT"
+                }
+            },
+            new Employee() {
+                Id = "27",
+                Name = "Lise Hansen",
+                Email = "liha@ibas.dk",
+                Department = new Department() {
+                    Id = 4,
+                    Name = "Kantinen"
+                }
+            },
+            new Employee() {
+                Id = "28",
+                Name = "Kim Larsen",
+                Email = "kila@ibas.dk",
+                Department = new Department() {
+                    Id = 4,
+                    Name = "Kantinen"
+                }
             }
         };
             return employees;
         }
     }
-
-
 }
